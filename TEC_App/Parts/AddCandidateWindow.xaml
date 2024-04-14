@@ -1,0 +1,680 @@
+﻿<Window
+    x:Class="TEC_App.Parts.AddCandidateWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TEC_App.Parts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AddCandidateWindow"
+    Width="850"
+    Height="810"
+    Loaded="AddCandidateWindow_OnLoaded"
+    mc:Ignorable="d">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="127.24" />
+            <RowDefinition Height="172.76" />
+            <RowDefinition Height="300" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--  CANDIDATE INFORMATION  -->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5,0,0,0"
+                FontSize="15"
+                FontWeight="Bold"
+                Text="Candidate Information" />
+            <TextBox
+                x:Name="TxtBxCandidateName"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="3"
+                Text="{Binding Path=CandidateName}" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="5,-3,0,0"
+                Text="Name" />
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="3"
+                Text="{Binding Path=HomeAddress}" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="5,-3,0,0"
+                Text="Home Address" />
+            <TextBox
+                Grid.Row="5"
+                Grid.Column="0"
+                Margin="3"
+                Text="{Binding Path=WorkAddress}" />
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="0"
+                Margin="5,-3,0,0"
+                Text="Work Address" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="3"
+                Text="{Binding Path=PhoneNumber}" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5,-3,0,0"
+                Text="Phone Number" />
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="3"
+                Text="{Binding Path=EmailAddress}" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="5,-3,0,0"
+                Text="Email Address" />
+        </Grid>
+        <!--  CERTIFICATE INFORMATION  -->
+        <Grid
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="130" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="5,0,0,0"
+                    FontSize="15"
+                    FontWeight="DemiBold"
+                    Text="Certificate " />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Height="20"
+                    Margin="3,0,0,0"
+                    VerticalAlignment="Bottom"
+                    Text="{Binding Path=Description}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="5,0,0,0"
+                    Text="Description" />
+                <DatePicker
+                    x:Name="DtPkrDateEarned"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="25"
+                    Margin="3"
+                    HorizontalAlignment="Left"
+                    SelectedDate="{Binding Path=DateEarned}" />
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="5,0,0,0"
+                    Text="Date Earned" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,0,3,0"
+                    HorizontalAlignment="Right"
+                    FontSize="15"
+                    FontWeight="DemiBold"
+                    Text="Qualification" />
+                <!--  Search Qualifications  -->
+                <Grid
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Height="50"
+                    VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Width="150"
+                        Height="30"
+                        Margin="12,0,0,8"
+                        Padding="5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        BorderBrush="DimGray"
+                        BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                x:Name="TblSearchBackground"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Margin="7,4,7,0"
+                                VerticalAlignment="Top"
+                                Foreground="LightGray"
+                                Text="Search" />
+                            <TextBox
+                                x:Name="TxtSearch"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Padding="5,3"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                GotFocus="TxtSearch_OnGotFocus"
+                                LostFocus="TxtSearch_OnLostFocus"
+                                Text="{Binding Path=SearchQualification, Delay=000, UpdateSourceTrigger=PropertyChanged}" />
+                            <Grid Grid.RowSpan="2" Grid.Column="0">
+                                <Path
+                                    Data="M504.352,459.061l-99.435-99.477c74.402-99.427,54.115-240.344-45.312-314.746S119.261-9.277,44.859,90.15   S-9.256,330.494,90.171,404.896c79.868,59.766,189.565,59.766,269.434,0l99.477,99.477c12.501,12.501,32.769,12.501,45.269,0   c12.501-12.501,12.501-32.769,0-45.269L504.352,459.061z M225.717,385.696c-88.366,0-160-71.634-160-160s71.634-160,160-160   s160,71.634,160,160C385.623,314.022,314.044,385.602,225.717,385.696z"
+                                    Fill="#757575"
+                                    Stretch="Uniform" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <ComboBox
+                    x:Name="CmBxQualifications"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Width="150"
+                    Margin="12.2,0,0,0"
+                    HorizontalAlignment="Left"
+                    DisplayMemberPath="Description"
+                    ItemsSource="{Binding Path=Qualifications}"
+                    SelectedItem="{Binding Path=SelectedQualification, Delay=500, UpdateSourceTrigger=PropertyChanged}" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Width="150"
+                    Height="20"
+                    Margin="12,0,0,0"
+                    HorizontalAlignment="Left"
+                    Click="BtnAddQualification_OnClick"
+                    Content="Add Qualification" />
+            </Grid>
+            <!--  LIST OF CERTIFICATES  -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <ListView
+                    Grid.Column="0"
+                    Margin="3"
+                    ItemsSource="{Binding Path=CandidateCertificates}">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Path=Description}"
+                                    Header="Description" />
+                                <GridViewColumn
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Path=DateEarned}"
+                                    Header="Date Earned" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button
+                    x:Name="BtnCertRemoveFromList"
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="3,25,0,0"
+                    VerticalAlignment="Top"
+                    Content="x" />
+                <!--<DataGrid Margin="5" ItemsSource="{Binding Path=CandidateCertificates}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="150"
+                            Binding="{Binding Path=Description}"
+                            Header="Description" />
+                        <DataGridTextColumn
+                            Width="150"
+                            Binding="{Binding Path=DateEarned}"
+                            Header="DateEarned" />
+                    </DataGrid.Columns>
+
+                </DataGrid>-->
+            </Grid>
+            <Button
+                x:Name="BtnAddCertificate"
+                Grid.Row="2"
+                Width="50"
+                Margin="3"
+                HorizontalAlignment="Right"
+                Click="BtnAddCertificate_OnClick"
+                Content="Add" />
+        </Grid>
+        <!--  SESSIONS ATTENDED INFORMATION  -->
+        <Grid
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="5,0,0,0"
+                    FontSize="15"
+                    FontWeight="DemiBold"
+                    Text="Sessions Attended" />
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Height="20"
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Bottom"
+                    Text="{Binding Path=SessionDescription}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="5,0,0,0"
+                    Text="Description" />
+                <DatePicker
+                    x:Name="DtPkrDateAttended"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="25"
+                    Margin="3"
+                    HorizontalAlignment="Left"
+                    SelectedDate="{Binding Path=DateAttended}" />
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="5,0,0,0"
+                    Text="Date Attended" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,0,3,0"
+                    HorizontalAlignment="Right"
+                    FontSize="15"
+                    FontWeight="DemiBold"
+                    Text="Session" />
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="150"
+                    Height="30"
+                    Margin="3,0,0,8"
+                    Padding="5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="DimGray"
+                    BorderThickness="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            x:Name="TblSearchBackgroundAttendance"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Margin="7,4,7,0"
+                            VerticalAlignment="Top"
+                            Foreground="LightGray"
+                            Text="Search" />
+                        <TextBox
+                            x:Name="TxtSearchAttendance"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Padding="5,3"
+                            VerticalContentAlignment="Center"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            GotFocus="TxtSearchAttendance_OnGotFocus"
+                            LostFocus="TxtSearchAttendance_OnLostFocus"
+                            Text="{Binding Path=SearchSession, Delay=000, UpdateSourceTrigger=PropertyChanged}" />
+                        <Grid Grid.RowSpan="2" Grid.Column="0">
+                            <Path
+                                Data="M504.352,459.061l-99.435-99.477c74.402-99.427,54.115-240.344-45.312-314.746S119.261-9.277,44.859,90.15   S-9.256,330.494,90.171,404.896c79.868,59.766,189.565,59.766,269.434,0l99.477,99.477c12.501,12.501,32.769,12.501,45.269,0   c12.501-12.501,12.501-32.769,0-45.269L504.352,459.061z M225.717,385.696c-88.366,0-160-71.634-160-160s71.634-160,160-160   s160,71.634,160,160C385.623,314.022,314.044,385.602,225.717,385.696z"
+                                Fill="#757575"
+                                Stretch="Uniform" />
+                        </Grid>
+                    </Grid>
+                </Border>
+                <ComboBox
+                    x:Name="CmBSession"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Width="150"
+                    Height="20"
+                    Margin="3,0,0,0"
+                    Padding="5,3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    DisplayMemberPath="SessionName"
+                    ItemsSource="{Binding Path=Sessions}"
+                    SelectedItem="{Binding Path=SelectedSession, Delay=500, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <ListView
+                    Grid.Column="0"
+                    Margin="3"
+                    ItemsSource="{Binding Path=CandidateAttendances}">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn
+                                    Width="120"
+                                    DisplayMemberBinding="{Binding Path=DateAttended}"
+                                    Header="Date Attended" />
+                                <GridViewColumn
+                                    Width="260"
+                                    DisplayMemberBinding="{Binding Path=SessionDescription}"
+                                    Header="Description" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button
+                    x:Name="BtnDeleteAttendance"
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="3,25,0,0"
+                    VerticalAlignment="Top"
+                    Content="x" />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button
+                    x:Name="BtnAddAttendance"
+                    Width="50"
+                    Margin="3"
+                    HorizontalAlignment="Right"
+                    Click="BtnAddAttendance_OnClick"
+                    Content="Add" />
+            </Grid>
+        </Grid>
+        <!--  JOB HISTORY INFORMATION  -->
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Margin="5,0,0,0"
+                FontSize="15"
+                FontWeight="DemiBold"
+                Text="Job History" />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                </Grid>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="5,0,0,0"
+                        FontSize="12"
+                        Text="Job Title" />
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Height="20"
+                        Margin="5"
+                        VerticalAlignment="Bottom"
+                        Text="{Binding Path=JobTitle}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="5,0,0,0"
+                        FontSize="12"
+                        Text="Date Assigned" />
+                    <DatePicker
+                        x:Name="DtPkrDateAssigned"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="120"
+                        Height="25"
+                        Margin="3"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        SelectedDate="{Binding Path=DateAssigned}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Margin="5,0,0,0"
+                        FontSize="12"
+                        Text="Date Ended" />
+                    <DatePicker
+                        x:Name="DtPkrDateEnded"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Width="120"
+                        Height="25"
+                        Margin="3"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        SelectedDate="{Binding Path=DateEnded}" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Height="20"
+                        Margin="5"
+                        Text="{Binding Path=CompanyName}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="5,0,0,0"
+                        Text="Company Name" />
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Height="20"
+                        Margin="5"
+                        Text="{Binding Path=JobHistoryDescription}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="5,0,0,0"
+                        Text="Description" />
+                </Grid>
+            </Grid>
+            <Grid Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <ListView
+                    Grid.Column="0"
+                    Margin="3"
+                    ItemsSource="{Binding Path=CandidateJobHistories}">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn
+                                    Width="100"
+                                    DisplayMemberBinding="{Binding Path=JobTitle}"
+                                    Header="Job Title" />
+                                <GridViewColumn
+                                    Width="130"
+                                    DisplayMemberBinding="{Binding Path=JobHistoryDescription}"
+                                    Header="Description" />
+                                <GridViewColumn
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Path=DateAssigned}"
+                                    Header="Date Assigned" />
+                                <GridViewColumn
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Path=DateEnded}"
+                                    Header="Date Ended" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button
+                    x:Name="BtnDeleteJobHistory"
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="3,25,3,0"
+                    VerticalAlignment="Top"
+                    Content="x" />
+            </Grid>
+            <Button
+                x:Name="BtnAddJobHistory"
+                Grid.Row="3"
+                Width="50"
+                Height="20"
+                Margin="3"
+                HorizontalAlignment="Right"
+                Click="BtnAddJobHistory_OnClick"
+                Content="Add" />
+        </Grid>
+        <!--  ADD CANIDATE AND CANCEL BUTTONS  -->
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="BtnAddCandidate"
+                Grid.Column="0"
+                Width="150"
+                Height="20"
+                Margin="5"
+                Click="BtnAddCandidate_OnClick"
+                Content="Add Candidate" />
+            <Button
+                x:Name="BtnCancelCandidate"
+                Grid.Column="1"
+                Width="150"
+                Height="20"
+                Click="BtnCancelCandidate_OnClick"
+                Content="Cancel" />
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18" />
+                    <RowDefinition Height="18" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Foreground="DimGray"
+                    Text="Note: Certificate Description is same as the name of the selected qualification  " />
+                <TextBlock
+                    Grid.Row="1"
+                    Margin="34,0,0,0"
+                    Foreground="DimGray"
+                    Text="SessionsAttended Description is same as the name of the selected session  " />
+            </Grid>
+            <TextBlock
+                Grid.Row="1"
+                Margin="10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontStyle="Italic"
+                Foreground="OrangeRed"
+                Text="{Binding Path=ErrorsInText, FallbackValue=Sample error}" />
+        </Grid>
+    </Grid>
+</Window>
